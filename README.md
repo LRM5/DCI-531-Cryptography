@@ -18,7 +18,7 @@
   -	Outputs the ciphertext in hex format.
 
 **3. aesdecrypt.py**
-  - A command-line script to decrypt a given ciphertext using a specified 128-bit key.
+  	- A command-line script to decrypt a given ciphertext using a specified 128-bit key.
 	-	Usage:
    *      python3 aesdecrypt.py <hex_key> <plaintext>
 
