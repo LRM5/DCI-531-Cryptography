@@ -3,7 +3,7 @@
 # aesencrypt.py - Encrypts the given plaintext with the provided key (AES-128, ECB).
 
 import sys
-from aes import encrypt_ecb
+from AES_impl import encrypt_ecb
 
 def main():
     if len(sys.argv) != 3:
