@@ -3,7 +3,7 @@
 # aesdecrypt.py - Decrypts the given ciphertext with the provided key (AES-128, ECB).
 
 import sys
-from aes import decrypt_ecb
+from AES_impl import decrypt_ecb
 
 def main():
     if len(sys.argv) != 3:
