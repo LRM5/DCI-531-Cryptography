@@ -1,7 +1,3 @@
-# AES_impl..py - Implements AES-128 from scratch in Python (ECB mode, PKCS#7 padding).
-#          Contains all transformations: SubBytes, ShiftRows, MixColumns, AddRoundKey,
-#          and the corresponding inverse operations, plus the key schedule.
-
 S_BOX = [
     0x63, 0x7c, 0x77, 0x7b, 0xf2, 0x6b, 0x6f, 0xc5, 0x30, 0x01, 0x67, 0x2b, 0xfe, 0xd7, 0xab, 0x76,
     0xca, 0x82, 0xc9, 0x7d, 0xfa, 0x59, 0x47, 0xf0, 0xad, 0xd4, 0xa2, 0xaf, 0x9c, 0xa4, 0x72, 0xc0,
@@ -61,7 +57,7 @@ NK = 4   # key length in 32-bit words for AES-128
 
 
 def sub_word(word):
-    """Apply S-Box substitution on each of 4 bytes of a 32-bit word."""
+    # Apply S-Box substitution on each of 4 bytes of a 32-bit word.
     return (
         (S_BOX[(word >> 24) & 0xFF] << 24) |
         (S_BOX[(word >> 16) & 0xFF] << 16) |
@@ -70,7 +66,7 @@ def sub_word(word):
     )
 
 def rot_word(word):
-    """Perform a cyclic permutation: [a0, a1, a2, a3] -> [a1, a2, a3, a0]."""
+    # Perform a cyclic permutation: [a0, a1, a2, a3] -> [a1, a2, a3, a0].
     return ((word << 8) & 0xFFFFFFFF) | ((word >> 24) & 0xFF)
 
 def key_expansion(key_bytes):
@@ -226,7 +222,7 @@ def decrypt_block(ciphertext_block, expanded_key):
     inv_shift_rows(state)
     inv_sub_bytes(state)
 
-    # Rounds 1..9
+    # Rounds 1 -> 9
     for round_idx in range(NR-1, 0, -1):
         add_round_key(state, expanded_key[round_idx*NB:(round_idx+1)*NB])
         inv_mix_columns(state)

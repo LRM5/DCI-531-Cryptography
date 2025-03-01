@@ -1,7 +1,3 @@
-#!/usr/bin/env python3
-
-# aesdecrypt.py - Decrypts the given ciphertext with the provided key (AES-128, ECB).
-
 import sys
 from AES_impl import decrypt_ecb
 

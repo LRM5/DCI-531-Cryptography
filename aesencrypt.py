@@ -1,7 +1,3 @@
-#!/usr/bin/env python3
-
-# aesencrypt.py - Encrypts the given plaintext with the provided key (AES-128, ECB).
-
 import sys
 from AES_impl import encrypt_ecb
 
@@ -13,16 +9,16 @@ def main():
     hex_key = sys.argv[1]
     plaintext = sys.argv[2]
 
-    # Convert hex key string to bytes
-    key_bytes = bytes.fromhex(hex_key)
-    # Convert plaintext to bytes (UTF-8)
-    plaintext_bytes = plaintext.encode('utf-8')
+   
+    key_bytes = bytes.fromhex(hex_key) # Convert hex key string to bytes
+    
+    plaintext_bytes = plaintext.encode('utf-8') # Convert plaintext to bytes (UTF-8)
 
-    # Encrypt
-    ciphertext = encrypt_ecb(plaintext_bytes, key_bytes)
+    
+    ciphertext = encrypt_ecb(plaintext_bytes, key_bytes) # Encrypt the plaintext
 
-    # Print ciphertext in hex
-    print(ciphertext.hex())
+    
+    print(ciphertext.hex()) # Print the now ciphertext in hex
 
 if __name__ == "__main__":
     main()
